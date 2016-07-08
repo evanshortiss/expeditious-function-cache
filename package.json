@@ -1,0 +1,43 @@
+{
+  "name": "expeditious-function-cache",
+  "version": "0.1.0",
+  "description": "cache results of slow running functions for greater efficiency",
+  "main": "lib/cache-function.js",
+  "scripts": {
+    "test": "npm run lint && npm run unit && npm run coverage",
+    "lint": "npm run jshint && npm run linelint",
+    "jshint": "jshint $(ls lib/*.js)",
+    "linelint": "linelint $(ls lib/*.js)",
+    "unit": "mocha test/",
+    "coverage": "nyc mocha test/ && nyc report --reporter=html && nyc check-coverage --branches 90 --functions 90 --lines 90 --statements 90"
+  },
+  "nyc": {
+    "exclude": ["lib/log.js", "lib/warn.js", "test/"]
+  },
+  "keywords": [
+    "cache",
+    "expeditious",
+    "function",
+    "caching",
+    "wrapper",
+    "wrap"
+  ],
+  "author": "Evan Shortiss",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "expeditious": "^0.1.0",
+    "expeditious-engine-memory": "^0.1.0",
+    "lodash": "^4.13.1",
+    "mocha": "^2.5.3",
+    "nyc": "^6.6.1",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.4"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "is-object": "^1.0.1",
+    "linelint": "^1.0.0",
+    "xtend": "^4.0.1"
+  }
+}
